@@ -11,16 +11,17 @@
   <body>
       <ul class="navbar">
         <li class="home">
-          <%= link_to image_tag("logo.png", :class => "logo") %>
+          <%=link_to image_tag("logo.png", :class => "logo" ), root_path %>
+
         </li>
         <li class="function">
           <ul>
             <li class="login">
-              <%= button_to "Log in", root_path, :class => "btn-mute", :method => :get %>
+              <%= button_to "Log in", new_user_session_path, :class => "btn-mute", :method => :get %>
               <!-- <button name="button" type="submit" class="btn btn-mute">Login</button></li> -->
             <li>
               <!-- <button name="button" type="submit" class="btn btn-primary">Sign up</button> -->
-              <%= button_to "Sign up", root_path, :class => "btn btn-primary", :method => :get %>
+              <%= button_to "Sign up", new_user_registration_path, :class => "btn btn-primary", :method => :get %>
 
             </li>
           </ul>
