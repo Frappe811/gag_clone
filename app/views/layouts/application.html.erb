@@ -16,14 +16,22 @@
         </li>
         <li class="function">
           <ul>
-            <li class="login">
-              <%= button_to "Log in", new_user_session_path, :class => "btn-mute", :method => :get %>
-              <!-- <button name="button" type="submit" class="btn btn-mute">Login</button></li> -->
-            <li>
-              <!-- <button name="button" type="submit" class="btn btn-primary">Sign up</button> -->
-              <%= button_to "Sign up", new_user_registration_path, :class => "btn btn-primary", :method => :get %>
-
-            </li>
+            <% if user_signed_in? %>
+              <li class="logout">
+                <%= button_to "Log out", destroy_user_session_path, :class => "btn-mute", :method => :delete %>
+              <li>
+              <li class="upload">
+                <%= button_to "+ Upload", root_path, :class => "btn btn-primary" %>
+              </li>
+            <% else %>
+              <li class="login">
+                <%= button_to "Log in", new_user_session_path, :class => "btn-mute", :method => :get %>
+                <!-- <button name="button" type="submit" class="btn btn-mute">Login</button></li> -->
+              <li>
+                <!-- <button name="button" type="submit" class="btn btn-primary">Sign up</button> -->
+                <%= button_to "Sign up", new_user_registration_path, :class => "btn btn-primary", :method => :get %>
+              </li>
+            <% end %>
           </ul>
         </li>
       </ul>
