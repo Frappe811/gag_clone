@@ -8,9 +8,10 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    super do |resource|
-      BackgroundWorker.trigger(resource)
-    end
+    respond_to do |format|
+        format.html { super }
+        format.js { authenticate }
+      end
   end
 
   # DELETE /resource/sign_out
