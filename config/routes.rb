@@ -3,4 +3,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   root 'posts#index'
+  devise_scope :user do
+    get 'sign_in', to: 'devise/sessions#new'
+  end
 end
